@@ -23,7 +23,7 @@ class FormContainer extends Component {
 			<form id='article-form'>
 				Current VALUE {seo_title}
 				<Input
-					text='Seo tilte'
+					text='Seo tilte1'
 					label='seo_title'
 					type='text'
 					id='seo_title'
@@ -35,7 +35,7 @@ class FormContainer extends Component {
 	}
 }
 
-const wrapper = document.getElementById("create-article-form");
+const wrapper = document.getElementById('create-article-form');
 wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;
 
 export default FormContainer;
