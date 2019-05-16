@@ -2,12 +2,16 @@
 	"parser": "babel-eslint",
 	"extends": [
 		"eslint:recommended",
-		"plugin:react/recommended"
+		"plugin:react/recommended",
+		"plugin:react-redux/recommended"
 	],
   	"rules": {
   		"semi": ["error", "always"],
   		"quotes": ["error", "single"]
   	},
+  	"plugins": [
+        "react-redux"
+    ],
   	"settings": {
 	    "react": {
 	      "createClass": "createReactClass", // Regex for Component Factory to use,
