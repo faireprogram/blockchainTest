@@ -1,0 +1,70 @@
+@md-screen-size: 1200px;
+@sm-screen-size: 1024px;
+@xs-screen-size: 768px;
+
+@arrow-defatult-width: 60px;
+
+.ARROW-RIGHT(@with: @arrow-defatult-width;) {
+	width: 0; 
+	height: 0; 
+	border-top: @with solid transparent;
+	border-bottom: @with solid transparent;
+
+	border-left: @with solid green;
+}
+
+.ARROW-DOWN(@with: @arrow-defatult-width;) {
+	width: 0; 
+	height: 0; 
+	border-top: @with solid green;
+	border-right: @with solid transparent;
+	border-left: @with solid transparent;
+}
+
+.mediaQuery(@size; @rules;) when (@size = 'xs') {
+	@media only screen and (max-width: @xs-screen-size) {
+		@rules();
+	}
+}
+
+.mediaQuery(@size; @rules;) when (@size = 'sm') {
+	@media only screen and (max-width: @sm-screen-size) {
+		@rules();
+	}
+}
+
+.mediaQuery(@size; @rules;) when (@size = 'md') {
+	@media only screen and (max-width: @md-screen-size) {
+		@rules();
+	}
+}
+
+.mediaQuery(@size; @rules;) when (@size = 'lg') {
+	@media only screen and (min-width: @md-screen-size) {
+		@rules();
+	}
+}
+
+.mediaQueryOnly(@size; @rules;) when (@size = 'xs') {
+	@media only screen and (max-width: @xs-screen-size) {
+		@rules();
+	}
+}
+
+.mediaQueryOnly(@size; @rules;) when (@size = 'sm') {
+	@media only screen and (min-width: @xs-screen-size) and (max-width: @sm-screen-size) {
+		@rules();
+	}
+}
+
+.mediaQueryOnly(@size; @rules;) when (@size = 'md') {
+	@media only screen and (min-width: @sm-screen-size) and (max-width: @md-screen-size) {
+		@rules();
+	}
+}
+
+.mediaQueryOnly(@size; @rules;) when (@size = 'lg') {
+	@media only screen and (min-width: @md-screen-size) {
+		@rules();
+	}
+}

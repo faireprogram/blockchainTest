@@ -5,8 +5,12 @@ const CleanWebPackPlugin = require('clean-webpack-plugin');
 module.exports = {
 	mode: 'development',
 	entry: {
-	  	app: './src/index.js'
+	  	app: ['./src/index.js', './src/less/main.less']
 	},
+	output: {
+	    filename: '[name].bundle.js',
+	    path: path.resolve(__dirname, 'dist')
+  	},
   	devtool: 'inline-source-map',
   	plugins: [
 	  	new CleanWebPackPlugin(),
@@ -15,10 +19,6 @@ module.exports = {
 	  		filename: './index.html'
 	  	})
   	],
-  	output: {
-	    filename: '[name].bundle.js',
-	    path: path.resolve(__dirname, 'dist')
-  	},
   	devServer: {
   		contentBase: './dist'
   	},
@@ -38,6 +38,29 @@ module.exports = {
 		        use: {
 		          loader: 'babel-loader'
 		        }
+		    },
+		    {
+		        test: /\.less$/,
+		        use: [
+		        	{
+						loader: 'file-loader',
+						options: {
+							name: 'assets/[name].css',
+						}
+					},
+		        	{
+						loader: 'extract-loader'
+					},
+					{
+						loader: 'css-loader?-url'
+					},
+					{
+						loader: 'postcss-loader'
+					},
+		        	{
+		        		loader: 'less-loader', // compiles Less to CSS
+		        	}
+		        ]
 		    }
 	    ]
 	}

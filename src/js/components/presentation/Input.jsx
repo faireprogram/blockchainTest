@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({label, text, type, id, value, handleChange}) => (
+const Input = ({label, text, type, id, value, handleChange, handleKeyUp}) => (
 	<div className='form-group'>
 		<label htmlFor={label}>{text}</label>
 		<input
@@ -10,18 +10,20 @@ const Input = ({label, text, type, id, value, handleChange}) => (
 			id={id}
 			value={value}
 			onChange={handleChange}
+			onKeyUp={handleKeyUp}
 			required
 		/>
 	</div>
 );
 
 Input.propTypes = {
-	label: PropTypes.string.isRequired,
-	text: PropTypes.string.isRequired,
-	type: PropTypes.string.isRequired,
-	id: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired,
-	handleChange: PropTypes.func.isRequired
+	label: PropTypes.string,
+	text: PropTypes.string,
+	type: PropTypes.string,
+	id: PropTypes.string,
+	value: PropTypes.string,
+	handleChange: PropTypes.func,
+	handleKeyUp: PropTypes.func
 };
 
 export default Input;

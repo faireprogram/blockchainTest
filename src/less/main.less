@@ -1,0 +1,99 @@
+@import "graphics.less";
+@import "spinner.less";
+@arrow-right-width-lms: 12px;
+
+body {
+	background-color: white;
+	.summary-header {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+
+		table {
+			td,th {
+				padding: 6px 0;
+			}
+		}
+
+		.mediaQuery('sm', {
+			display: block;
+			margin-top: 18px;
+		});
+		
+		.summary-bitcoin-section {
+			display: flex;
+			align-items: center;
+			padding: 32px;
+			border: 2px solid black;
+		}
+
+		.summary-market-section {
+			
+		}
+	}
+
+	.transactionInfo-sections {
+		margin-top: 32px;
+		.transactionInfo-section-header {
+			font-size: 20px;
+			background-color: #ccc;
+			font-weight: 400;
+		}
+	}
+	
+
+	.transactionInfo-section {
+		border-bottom: 2px solid #ccc;
+		margin-bottom: 18px;
+		padding-bottom: 6px; 
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+
+	.transactionInfo-container {
+		display: flex;
+		justify-content: space-between;
+
+		.transactionInfo-connect {
+			.transactionInfo-arrow {
+				.mediaQuery('sm', {
+					position: relative;
+					top: 6px;
+					.ARROW-DOWN(@arrow-right-width-lms);
+				});
+
+				.ARROW-RIGHT(@arrow-right-width-lms);
+			}
+
+			.mediaQuery('sm', {
+				display: flex;
+				justify-content: center;
+			});
+
+			align-self: center;
+		}
+
+		.transactionInfo-details {
+			.mediaQuery('sm', {
+				display: flex;
+				justify-content: space-between;
+			});
+		}
+
+		.mediaQuery('sm', {
+			flex-wrap: wrap;
+
+			.transactionInfo-from, .transactionInfo-connect, .transactionInfo-to {
+				width: 100%;
+			}
+
+		});
+	}
+
+	.moneyBox {
+		display: inline-block;
+		padding: 0 6px;
+		font-weight: 600;
+	}
+}
